@@ -1,24 +1,14 @@
 apiVersion: v1
 entries:
-  compose-fe:
+  compose-fe-v001:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-01-13T16:46:00.098021812+05:30"
+    created: "2022-01-13T17:40:26.355329506+05:30"
     description: A Helm chart for Kubernetes
-    digest: ab2ff123c1c593324dec126fbae1d7136ed1d7eb6d571a3e45606dcad9714337
-    name: compose-fe
+    digest: edf43a3a1c5b57c817898705f32ee2b437f45645fa57e15188c65d7600a2e03d
+    name: compose-fe-v001
     type: application
     urls:
-    - compose-fe-0.1.1.tgz
+    - compose-fe-v001-0.1.1.tgz
     version: 0.1.1
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-01-13T16:46:00.096143314+05:30"
-    description: A Helm chart for Kubernetes
-    digest: b6d0b37337efca36c72bdbe3a9f0cf0af59d1a20144d1b2dfe52db465e9aed06
-    name: compose-fe
-    type: application
-    urls:
-    - compose-fe-0.1.0.tgz
-    version: 0.1.0
-generated: "2022-01-13T16:46:00.093595918+05:30"
+generated: "2022-01-13T17:40:26.352938435+05:30"

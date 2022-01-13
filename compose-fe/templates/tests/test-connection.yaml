@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "compose-fe.fullname" . }}-test-connection"
+  name: "{{ include "compose-fe-v001.fullname" . }}-test-connection"
   labels:
-    {{- include "compose-fe.labels" . | nindent 4 }}
+    {{- include "compose-fe-v001.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test
 spec:
@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "compose-fe.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "compose-fe-v001.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never

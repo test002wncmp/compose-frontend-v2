@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "compose-fe.fullname" . }}
+  name: {{ include "compose-fe-v001.fullname" . }}
   labels:
-    {{- include "compose-fe.labels" . | nindent 4 }}
+    {{- include "compose-fe-v001.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "compose-fe.selectorLabels" . | nindent 6 }}
+      {{- include "compose-fe-v001.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "compose-fe.selectorLabels" . | nindent 8 }}
+        {{- include "compose-fe-v001.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "compose-fe.serviceAccountName" . }}
+      serviceAccountName: {{ include "compose-fe-v001.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

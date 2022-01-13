@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "compose-fe.name" -}}
+{{- define "compose-fe-v001.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "compose-fe.fullname" -}}
+{{- define "compose-fe-v001.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "compose-fe.chart" -}}
+{{- define "compose-fe-v001.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "compose-fe.labels" -}}
-helm.sh/chart: {{ include "compose-fe.chart" . }}
-{{ include "compose-fe.selectorLabels" . }}
+{{- define "compose-fe-v001.labels" -}}
+helm.sh/chart: {{ include "compose-fe-v001.chart" . }}
+{{ include "compose-fe-v001.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "compose-fe.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "compose-fe.name" . }}
+{{- define "compose-fe-v001.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "compose-fe-v001.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "compose-fe.serviceAccountName" -}}
+{{- define "compose-fe-v001.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "compose-fe.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "compose-fe-v001.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
